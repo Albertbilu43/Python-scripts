@@ -1,0 +1,91 @@
+OOP
+
+---------------------- HOW TO INVOKE A METHOD FROM INSIDE THE CLASS ----------------------
+
+Example of a class(Stack) with two methods (push, pop):
+
+class Stack:
+    def __init__(self):
+        self.__stack_list = []
+
+
+    def push(self, val):
+        self.__stack_list.append(val)
+
+
+    def pop(self):
+        val = self.__stack_list[-1]
+        del self.__stack_list[-1]
+        return val
+
+
+stack_object = Stack()
+
+stack_object.push(3)
+stack_object.push(2)
+stack_object.push(1)
+
+print(stack_object.pop())
+print(stack_object.pop())
+print(stack_object.pop())
+
+
+
+Here, both functions have a parameter named 'self' at the first position of the parameters list. 
+All methods have to have this parameter. It plays the same role as the first constructor parameter.
+You cannot omit it. Every time Python invokes a method, it implicitly sends the current object as the first argument.
+This means that a method is obligated to have at least one parameter, which is used by Python itself – you don't have any influence on it.
+
+'self' allows the method to access entities (properties and activities/methods) carried out by the actual object. 
+
+
+
+The way in which methods are invoked from within the __stack_list variable.
+
+As it follows:  self.__stack_list.append(val)
+
+    the first stage delivers the object as a whole → self;
+    next, you need to get to the __stack_list list → self.__stack_list;
+    with __stack_list ready to be used, you can perform the third and last step → self.__stack_list.append(val).
+
+
+
+--------------------------- SUBCLASS ------------------------------
+
+Subclass example:
+
+
+# CLASS. tHIS BECOMES THE SUPERCLASS
+
+class Stack:
+    def __init__(self):
+        self.__stack_list = []
+
+    def push(self, val):
+        self.__stack_list.append(val)
+
+    def pop(self):
+        val = self.__stack_list[-1]
+        del self.__stack_list[-1]
+        return val
+
+        
+# SUBCLASS
+class AddingStack(Stack):     # AddingStack is a new class that becomes a SUBCLASS of the class Stack
+    def __init__(self):       # This is the subclass's constructor
+        Stack.__init__(self)  # invoke the superclass's constructor before any other initializations
+        self.__sum = 0
+    
+Note: it's generally a recommended practice to invoke the superclass's constructor before any other initializations you want to perform inside the subclass. This is the rule we have followed in the snippet.
+
+Note1: invoking any method (including constructors) from outside the class never requires you to put the 'self' argument at the argument's list  
+       invoking a method from within the class demands explicit usage of the 'self' argument, and it has to be put first on the list.
+
+
+Note2: 
+
+    Note the way we've invoked the previous implementation of the push method (the one available in the superclass) Stack.__init__(self):
+
+    we have to specify the superclass's name; this is necessary in order to clearly indicate the class containing the method, to avoid confusing it with any other function of the same name;
+    we have to specify the target object and to pass it as the first argument (it's not implicitly added to the invocation in this context.)
+
