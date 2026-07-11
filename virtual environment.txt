@@ -1,0 +1,74 @@
+Install python   C:\Users\ale_r\AppData\Local\Programs\Python\Python311
+Intstall PyCharm C:\Program Files\JetBrains\PyCharm 2025.3.1.1
+
+<<<<<<<<<<<<<<<<<<<<<<<< VSCODE >>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+<create virtual Environment>
+
+
+<<<<<<<<<<<<<<<<<<<<<<<< In VSCODE UI  Ctrl+Shift+P >>>>>>>>>>>>>>>>>>>>>
+ 	 	
+
+Method 1: Using the VS Code Command Palette
+
+    Open the Command Palette: Press Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (macOS).
+    Search for "Python: Create Environment": Type "Python: Create Environment" and select the corresponding command from the dropdown.
+    Choose Environment Type: Select Venv for a standard Python virtual environment.
+    Select Python Interpreter: Choose the Python interpreter you want to use for this virtual environment. VS Code will then create the environment within your project folder (typically named venv or env).
+    VS Code will automatically select: this newly created virtual environment as the interpreter for your workspace.
+
+You can move your files to that folder 
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<< With Python >>>>>>>>>>>>>>>>>>>>>
+
+In terminal type this:
+
+1 Access to teh directory first:
+  ex. CD folder_name wher you want to create teh file
+
+2 Get back to a previous folder: 
+  ex. CD..  (as many times as needed to get to teh desired folder)
+
+3 Activate environment. Once in the desired folder type:
+
+ python -m venv venv
+
+ .\venv\Scripts\activate
+
+ or try 
+ . \venv\Scripts\activate
+
+4 Select Interpreter
+ CTRL+ SHIFT = P
+  sELECT Conda Create 'conda' environment 
+ 
+  Select Interperter python lattest version you see displayed
+
+5 Run the code
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<< With Conda >>>>>>>>>>>>>>>>>>>>>
+
+In terminal  type:
+
+conda create -n venv
+
+.\venv\Scripts\activate
+
+
+Note: In terminal type  pip -V to see where pip is
+
+
+If above process does not work. Try:
+
+Select Interpreter
+ CTRL+ SHIFT = P
+ Typr Python: Select Interperter
+  * Choose the recommended one
+ 
